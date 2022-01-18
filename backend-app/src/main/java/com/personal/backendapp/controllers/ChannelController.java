@@ -4,8 +4,8 @@
  */
 package com.personal.backendapp.controllers;
 
-import com.personal.backendapp.models.Distributor;
-import com.personal.backendapp.services.DistributorService;
+import com.personal.backendapp.models.Channel;
+import com.personal.backendapp.services.ChannelService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -22,35 +22,34 @@ import org.springframework.web.bind.annotation.RestController;
  * @author sharon98
  */
 @RestController
-@RequestMapping(value = "/api/distributor")
-public class DistributorController {
+@RequestMapping(value = "/api/channel")
+public class ChannelController {
 
     @Autowired
-    public DistributorService distributorService;
+    public ChannelService channelService;
 
     @GetMapping("/")
-    List<Distributor> getDistributors() {
-        return distributorService.getDistributors();
+    List<Channel> getChannels() {
+        return channelService.getChannels();
     }
 
     @GetMapping("/{id}")
-    Distributor getDistributorById(@PathVariable Integer id) {
-        return distributorService.getDistributorById(id);
+    Channel getChannelById(@PathVariable Integer id) {
+        return channelService.getChannelById(id);
     }
 
     @PostMapping("/")
-    Distributor addDistributor(@RequestBody Distributor distributor) {
-        return distributorService.addDistributor(distributor);
+    Channel addChannel(@RequestBody Channel channel) {
+        return channelService.addChannel(channel);
     }
 
     @PutMapping("/{id}")
-    Distributor updateDistributor(@PathVariable Integer id, @RequestBody Distributor distributor) {
-        return distributorService.updateDistributor(id, distributor);
+    Channel updateChannel(@PathVariable Integer id, @RequestBody Channel channel) {
+        return channelService.updateChannel(id, channel);
     }
 
     @DeleteMapping("/{id}")
-    void removeDistributor(@PathVariable Integer id) {
-        distributorService.removeDistributor(id);
+    void removeChannel(@PathVariable Integer id) {
+        channelService.removeChannel(id);
     }
-
 }
