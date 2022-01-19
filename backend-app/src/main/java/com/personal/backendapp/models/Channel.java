@@ -4,12 +4,16 @@
  */
 package com.personal.backendapp.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.Data;
 
@@ -29,6 +33,8 @@ public class Channel implements Serializable {
     @Column(name="name")
     private String name;
 
-    @Column(name="distributor_id")
-    private Integer distributor_id;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @JoinColumn(name = "distributor_id")
+    private Distributor distributor;
 }

@@ -47,6 +47,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+	 <dependency>
+	  <groupId>com.jpomykala</groupId>
+	  <artifactId>spring-higher-order-components</artifactId>
+	  <version>1.0.11</version>
+	  <type>jar</type>
+	 </dependency>
 	</dependencies>
 
 	<build>

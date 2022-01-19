@@ -5,7 +5,7 @@
 package com.personal.backendapp.services;
 
 import com.personal.backendapp.models.Product;
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public interface ProductService {
 
-    public ArrayList<Product> getProducts();
+    public List<Product> getProducts();
 
     public Product getProductById(Integer id);
 

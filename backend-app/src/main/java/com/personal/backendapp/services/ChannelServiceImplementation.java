@@ -45,7 +45,7 @@ public class ChannelServiceImplementation implements ChannelService {
         return channelRepository.findById(id)
                 .map(oldChannel -> {
                     oldChannel.setName(channel.getName());
-                    oldChannel.setDistributor_id(channel.getDistributor_id());
+                    oldChannel.setDistributor(channel.getDistributor());
                     return channelRepository.save(oldChannel);
                 }).orElseGet(() -> { return channel; });
     }

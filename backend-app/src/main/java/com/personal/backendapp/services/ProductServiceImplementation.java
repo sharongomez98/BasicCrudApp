@@ -6,7 +6,7 @@ package com.personal.backendapp.services;
 
 import com.personal.backendapp.models.Product;
 import com.personal.backendapp.repositories.ProductRepository;
-import java.util.ArrayList;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,8 +23,8 @@ public class ProductServiceImplementation implements ProductService{
 
     @Override
     @Transactional(readOnly = true)
-    public ArrayList<Product> getProducts() {
-        return (ArrayList<Product>) productRepository.findAll();
+    public List<Product> getProducts() {
+        return productRepository.findAll();
     }
 
     @Override
@@ -46,7 +46,7 @@ public class ProductServiceImplementation implements ProductService{
                 .map(oldProduct -> {
                     oldProduct.setDescription(product.getDescription());
                     oldProduct.setMount(product.getMount());
-                    oldProduct.setDistributor_id(product.getDistributor_id());
+                    oldProduct.setDistributor(product.getDistributor());
                     return productRepository.save(oldProduct);
                 }).orElseGet(() -> { return product;});
     }

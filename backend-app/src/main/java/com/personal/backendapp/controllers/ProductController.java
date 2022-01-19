@@ -4,7 +4,9 @@
  */
 package com.personal.backendapp.controllers;
 
+import com.personal.backendapp.models.Distributor;
 import com.personal.backendapp.models.Product;
+import com.personal.backendapp.services.DistributorService;
 import com.personal.backendapp.services.ProductService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,9 +30,17 @@ public class ProductController {
     @Autowired
     public ProductService productService;
 
+    @Autowired
+    private DistributorService distributorService;
+
     @GetMapping("/")
     List<Product> getProducts() {
         return productService.getProducts();
+    }
+
+    @GetMapping("/distributors")
+    List<Distributor> getDistributors() {
+        return distributorService.getDistributors();
     }
 
     @GetMapping("/{id}")
