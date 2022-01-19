@@ -10,8 +10,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.Data;
 
@@ -34,7 +32,6 @@ public class Product implements Serializable{
     @Column(name="mount")
     private Double mount;
 
-    @ManyToOne
-    @JoinColumn(name = "distributor")
-    private Distributor distributor;
+    @Column(name = "distributor_id")
+    private Integer distributor_id;
 }
