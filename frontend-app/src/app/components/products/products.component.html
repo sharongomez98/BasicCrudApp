@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="d-flex p-2 justify-content-between">
+    <h2>Productos</h2>
+    <button class="btn btn-outline-primary btn-sm" [routerLink]="['product/']">
+      <i class="fa fa-plus"></i>
+      Crear Producto
+    </button>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Monto</th>
+        <th scope="col">Distribuidor</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <th scope="row">{{ product.id }}</th>
+        <td>{{ product.description }}</td>
+        <td>{{ product.mount }}</td>
+        <td>{{ product.distributor.name }}</td>
+        <td>
+          <button
+            class="btn btn-outline-secondary btn-sm me-2"
+            data-bs-toggle="tooltip"
+            title="Editar"
+            [routerLink]="['product/', product.id]"
+          >
+            <i class="fa fa-pencil"></i>
+          </button>
+          <button
+            class="btn btn-outline-danger btn-sm"
+            data-bs-toggle="tooltip"
+            title="Eliminar"
+            (click)="removeProduct(product.id)"
+          >
+            <i class="fa fa-trash"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

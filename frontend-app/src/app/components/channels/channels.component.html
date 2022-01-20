@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="d-flex p-2 justify-content-between">
+      <h2>Canales</h2>
+      <button class="btn btn-outline-primary btn-sm" [routerLink]="['channel/']">
+        <i class="fa fa-plus"></i>
+        Crear Canal
+      </button>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Distribuidor</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let channel of channels">
+          <th scope="row">{{ channel.id }}</th>
+          <td>{{ channel.name }}</td>
+          <td>{{ channel.distributor.name }}</td>
+          <td>
+            <button
+              class="btn btn-outline-secondary btn-sm me-2"
+              data-bs-toggle="tooltip"
+              title="Editar"
+              [routerLink]="['channel/', channel.id]"
+            >
+              <i class="fa fa-pencil"></i>
+            </button>
+            <button
+              class="btn btn-outline-danger btn-sm"
+              data-bs-toggle="tooltip"
+              title="Eliminar"
+              (click)="removeChannel(channel.id)"
+            >
+              <i class="fa fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

@@ -1,0 +1,59 @@
+<div class="container">
+  <form>
+    <h2 class="mt-4">Nuevo Producto</h2>
+    <div class="mb-3">
+      <label for="description" class="form-label">Descripción</label>
+      <input
+        type="text"
+        class="form-control"
+        name="description"
+        [(ngModel)]="product.description"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="mount" class="form-label">Monto</label>
+      <input
+        type="number"
+        class="form-control"
+        name="mount"
+        [(ngModel)]="product.mount"
+      />
+    </div>
+    <div class="form-group row">
+      <label for="distributor" class="col-form-label col-sm-2"
+        >Distribuidor</label
+      >
+      <div>
+        <select [compareWith]="compareDistributor"
+          [(ngModel)]="product.distributor"
+          class="form-control"
+          name="distributor"
+        >
+          <option [ngValue]="undefined">--- Seleccionar un distribuidor</option>
+          <option
+            *ngFor="let distributor of distributors"
+            [ngValue]="distributor"
+          >
+            {{ distributor.name }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary mt-4" *ngIf="!product.id"
+      (click)="createProduct()"
+    >
+      Guardar
+    </button>
+    <button
+      type="submit"
+      class="btn btn-primary mt-4" *ngIf="product.id"
+      (click)="updateProduct()"
+    >
+      Guardar
+    </button>
+    
+  </form>
+</div>

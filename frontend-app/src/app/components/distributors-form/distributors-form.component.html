@@ -1,0 +1,49 @@
+<div class="container">
+    <form>
+      <h2 class="mt-4">Nuevo Distribuidor</h2>
+      <div class="mb-3">
+        <label for="name" class="form-label">Nombre</label>
+        <input
+          type="text"
+          class="form-control"
+          name="name"
+          [(ngModel)]="distributor.name"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="notificationEmail" class="form-label">Email para Notificaciones</label>
+        <input
+          type="email"
+          class="form-control"
+          name="notificationEmail"
+          [(ngModel)]="distributor.notificationEmail"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="alertEmail" class="form-label">Email para Alertas</label>
+        <input
+          type="email"
+          class="form-control"
+          name="alertEmail"
+          [(ngModel)]="distributor.alertEmail"
+        />
+      </div>
+  
+      <button
+        type="submit"
+        class="btn btn-primary mt-4" *ngIf="!distributor.id"
+        (click)="createDistributor()"
+      >
+        Guardar
+      </button>
+      <button
+        type="submit"
+        class="btn btn-primary mt-4" *ngIf="distributor.id"
+        (click)="updateDistributor()"
+      >
+        Guardar
+      </button>
+      
+    </form>
+  </div>
+  
